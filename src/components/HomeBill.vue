@@ -25,8 +25,6 @@ export default {
   },
   computed: {
     base () {
-      console.log('this.$store.getters')
-      console.log(this.$store.getters.info)
       return this.$store.getters.info.bill / (this.rates.PLN / this.rates.EUR)
     }
   },

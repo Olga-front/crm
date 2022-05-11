@@ -1,4 +1,5 @@
 import firebase from 'firebase/app'
+import router from './../router'
 
 export default {
   state: {
@@ -16,13 +17,18 @@ export default {
     async fetchInfo ({ dispatch, commit }) {
       try {
         const uid = await dispatch('getUid')
-        console.log('uid')
-        console.log(uid)
+
+        if (!uid) {
+          router.push('/register')
+          return
+        }
+
         const info = (await firebase.database().ref(`/users/${uid}/info`).once('value')).val()
 
         commit('setInfo', info)
       } catch (e) {
         commit('setError', e)
+        router.push('/register')
         throw e
       }
     },

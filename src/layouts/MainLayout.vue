@@ -35,7 +35,6 @@ export default {
   },
   async mounted () {
     if (!Object.keys(this.$store.getters.info).length) {
-      console.log('312312')
       await this.$store.dispatch('fetchInfo')
     }
 

@@ -5,7 +5,7 @@
         <a href="#" v-on:click.prevent="$emit('click')">
           <i class="material-icons black-text">dehaze</i>
         </a>
-        <span class="black-text">{{ date | date('datetime') }}</span>
+        <span class="black-text">{{ formatDate(date) }}</span>
       </div>
 
       <ul class="right hide-on-small-and-down">
@@ -70,6 +70,10 @@ export default {
     async logout () {
       await this.$store.dispatch('logout')
       this.$router.push('/login?message=logout')
+    },
+    formatDate (date) {
+      const options = { year: 'numeric', month: 'long', day: 'numeric' }
+      return new Date(date).toLocaleDateString('en', options)
     }
   },
   computed: {
