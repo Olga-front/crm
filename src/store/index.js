@@ -24,9 +24,8 @@ export default new Vuex.Store({
   },
   actions: {
     async fetchCurrency () {
-      const key = process.env.VUE_APP_FEXIR
-      const res = await fetch(`http://data.fixer.io/api/latest?access_key=${key}&symbols=USD,EUR,PLN`)
-      return await res.json()
+      const res = { base: 'EUR', date: new Date(), rates: { USD: 1.055432, EUR: 1, PLN: 4.667462 } }
+      return res
     }
   },
   modules: {
