@@ -1,8 +1,5 @@
 # CRM
 
-### Technologies used in Project
-
-
 ## Project setup
 ```
 yarn install
